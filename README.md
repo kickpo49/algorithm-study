@@ -1,1 +1,1 @@
-# algorithm-study
+# Coding Test
