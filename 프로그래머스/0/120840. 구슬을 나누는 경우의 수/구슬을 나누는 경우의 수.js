@@ -12,7 +12,8 @@ function solution(balls, share) {
     
     return answer;
 }
-
+// Math.round() 반올림 메소드 필요
+// JavaScript는 숫자를 부동소수점(floating point) 방식으로 저장하는데, 나눗셈을 반복하면 미세한 오차가 누적
 // function solution(balls, share) {
 //     let answer = 0;
     
@@ -42,7 +43,7 @@ function solution(balls, share) {
     
 //     answer = n / (m * k);
     
-//     return answer;
+//     return Math.round(answer);
 // }
 // sol2 팩토리얼 함수 생성
 // function solution(balls, share) {
@@ -61,5 +62,5 @@ function solution(balls, share) {
     
 //     let answer = n / (m * k);  // nCm = n! / (m! * (n-m)!)
     
-//     return answer;
+//     return Math.round(answer);
 // }
