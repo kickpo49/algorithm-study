@@ -1,0 +1,12 @@
+-- 코드를 입력하세요
+SELECT
+ANIMAL_ID,
+NAME
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE = 'Dog' AND NAME LIKE '%EL%'
+ORDER BY NAME ASC;
+# 대소문자를 명시적으로 제어하는 방법
+# WHERE NAME LIKE '%EL%' COLLATE utf8mb4_general_ci
+# 혹은 아래의 방법
+# WHERE UPPER(NAME) LIKE '%EL%'
+# WHERE LOWER(NAME) LIKE '%el%'
