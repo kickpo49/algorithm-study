@@ -1,0 +1,13 @@
+-- 코드를 입력하세요
+SELECT
+NAME,
+COUNT(NAME) AS COUNT
+FROM ANIMAL_INS
+WHERE NAME IS NOT NULL
+# COUNT(NAME)은 NAME이 NULL이 아닌 값만 카운트합니다.
+# 하지만 GROUP BY NAME을 사용하면 NULL도 하나의 그룹이 되므로, NULL 그룹이 결과에 포함될 수 있습니다.
+GROUP BY NAME
+HAVING COUNT(*) >= 2    # COUNT(*)는 NULL 값을 포함한 모든 행을 카운트합니다.
+ORDER BY NAME ASC;
+
+# SELECT * FROM ANIMAL_INS;
