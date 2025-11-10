@@ -1,0 +1,14 @@
+-- 코드를 작성해주세요
+SELECT
+ROUTE,
+CONCAT(ROUND(SUM(D_BETWEEN_DIST), 1), 'km') AS TOTAL_DISTANCE,
+CONCAT(ROUND(AVG(D_BETWEEN_DIST), 2), 'km') AS AVERAGE_DISTANCE
+FROM SUBWAY_DISTANCE
+GROUP BY ROUTE
+ORDER BY SUM(D_BETWEEN_DIST) DESC;
+
+
+# ORDER BY TOTAL_DISTANCE DESC에서 TOTAL_DISTANCE는 이미 CONCAT으로 문자열('km' 포함)이 되어 있어서, 문자열 정렬이 됩니다. 이 경우 숫자 크기가 아닌 사전식 순서로 정렬되어 원하는 결과가 나오지 않습니다.
+
+# - `ORDER BY TOTAL_DISTANCE DESC` → `ORDER BY SUM(D_BETWEEN_DIST) DESC`
+# - ORDER BY 절에서는 **원본 숫자 값**으로 정렬해야 합니다.
