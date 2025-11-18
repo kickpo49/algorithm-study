@@ -1,0 +1,18 @@
+-- 코드를 작성해주세요
+SELECT
+    ID,
+    CASE
+        WHEN RANKING <= 0.25 THEN 'CRITICAL'
+        WHEN RANKING <= 0.5 THEN 'HIGH'
+        WHEN RANKING <= 0.75 THEN 'MEDIUM'
+        ELSE 'LOW'
+    END AS COLONY_NAME
+FROM (
+    SELECT
+        ID,
+        PERCENT_RANK() OVER (ORDER BY SIZE_OF_COLONY DESC) AS RANKING
+    FROM ECOLI_DATA
+) RANKED
+ORDER BY ID ASC;
+
+# PERCENT_RANK()는 백분위 순위를 계산하는 윈도우 함수
