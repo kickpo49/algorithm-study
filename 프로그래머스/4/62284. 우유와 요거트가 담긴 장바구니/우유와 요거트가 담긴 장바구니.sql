@@ -1,0 +1,16 @@
+-- 코드를 입력하세요
+SELECT
+CART_ID
+FROM CART_PRODUCTS
+WHERE NAME IN ('Milk', 'Yogurt') # Milk와 Yogurt가 있는 행만 필터링
+GROUP BY CART_ID    # CART_ID로 그룹화
+HAVING COUNT(DISTINCT NAME) = 2 # 고유한 상품명이 2개인 장바구니만 선택 (= 둘 다 있음)
+ORDER BY CART_ID ASC;
+
+# 방법 2: SELF JOIN 사용
+# SELECT DISTINCT
+#     C1.CART_ID
+# FROM CART_PRODUCTS C1
+# JOIN CART_PRODUCTS C2 ON C1.CART_ID = C2.CART_ID
+# WHERE C1.NAME = 'Milk' AND C2.NAME = 'Yogurt'
+# ORDER BY C1.CART_ID ASC;
