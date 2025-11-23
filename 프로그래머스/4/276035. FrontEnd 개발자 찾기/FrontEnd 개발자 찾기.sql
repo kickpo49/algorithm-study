@@ -1,0 +1,13 @@
+-- 코드를 작성해주세요
+SELECT
+    ID,
+    EMAIL,
+    FIRST_NAME,
+    LAST_NAME
+FROM DEVELOPERS
+WHERE SKILL_CODE & (
+    SELECT SUM(CODE)  -- 여러 CODE를 하나로 합침
+    FROM SKILLCODES
+    WHERE CATEGORY = 'Front End'
+) > 0
+ORDER BY ID ASC;
