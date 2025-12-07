@@ -8,7 +8,11 @@ def solution(a, b):
         return concatab
     else:
         return multiply
-    
+
+# 다른 사람 풀이
+# def solution(a, b):
+#     return max(int(str(a) + str(b)), 2 * a * b)
+        
 # JavaScript
 # function solution(a, b) {
 #     // a ⊕ b: 두 수를 붙여서 쓴 값
